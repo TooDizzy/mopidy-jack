@@ -26,7 +26,7 @@ setup(
         'setuptools',
         'Mopidy >= 0.16.1',
         'Pykka >= 1.1',
-        'pyjack >= 0.3.2',
+        'pyjack >= 0.5.1',
     ],
     test_suite='nose.collector',
     tests_require=[
