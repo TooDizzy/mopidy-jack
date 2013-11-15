@@ -26,6 +26,22 @@ Installation
 
 Install by running::
 
+	A prerequisite for this plugin is JACK (naturally) and the JACK headers.
+	For JACK1 these can be installed by:
+	sudo apt-get install libjack-dev
+	
+	And for JACK2 these can be installed by:
+	sudo apt-get install libjack-jackd2-dev
+
+	And in order for us to build py-jack we need to install a few dependencies: NumPy, python-dev. 
+
+	You should also install NumPy:
+	
+	sudo apt-get install python-numpy
+	sudo apt-get install python-dev
+	
+	Then it's just to run:
+	
     pip install Mopidy-Jack
 
 Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
