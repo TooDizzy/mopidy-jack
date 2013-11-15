@@ -6,11 +6,10 @@ import os
 # remove entirely
 #import pygst
 #pygst.require('0.10')
-#import gst
-#import gobject
+import gst
+import gobject
 
 from mopidy import config, ext
-
 
 __version__ = '0.1.0'
 
@@ -32,22 +31,8 @@ class Extension(ext.Extension):
         #schema['password'] = config.Secret()
         return schema
 
-    # You will typically only implement one of the next three methods
-    # in a single extension.
 
-    # TODO: Comment in and edit, or remove entirely
-    #def get_frontend_classes(self):
-    #    from .frontend import FoobarFrontend
-    #    return [FoobarFrontend]
-
-    # TODO: Comment in and edit, or remove entirely
-    #def get_backend_classes(self):
-    #    from .backend import FoobarBackend
-    #    return [FoobarBackend]
-
-    # TODO: Comment in and edit, or remove entirely
-    #def register_gstreamer_elements(self):
-    #    from .mixer import FoobarMixer
-    #    gobject.type_register(FoobarMixer)
-    #    gst.element_register(
-    #        FoobarMixer, 'foobarmixer', gst.RANK_MARGINAL)
+    def register_gstreamer_elements(self):
+        from .patchbay import JackPatchBay
+        gobject.type_register(JackPatchBay)
+        gst.element_register(JackPatchBay, 'jackmixer', gst.RANK_MARGINAL)
