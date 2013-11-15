@@ -54,9 +54,9 @@ class JackPatchBay(gst.Element, gst.ImplementsInterface, gst.interfaces.Mixer):
 
     def do_change_state(self, transition):
         if transition == gst.STATE_CHANGE_NULL_TO_READY:
-            if serial is None:
-                logger.warning('arcammixer dependency pyserial not found')
-                return gst.STATE_CHANGE_FAILURE
+            #if serial is None:
+            #    logger.warning('arcammixer dependency pyserial not found')
+            #    return gst.STATE_CHANGE_FAILURE
             
             self._jack = JackActor.start().proxy()
             
